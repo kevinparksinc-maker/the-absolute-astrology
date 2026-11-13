@@ -1,0 +1,22 @@
+# Render Blueprint: server hosts both the built React app and tRPC API.
+# Configure secrets in the Render dashboard; never commit actual key values.
+services:
+  - type: web
+    name: the-absolute
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: DATABASE_URL
+        sync: false
+      - key: OAUTH_SERVER_URL
+        sync: false

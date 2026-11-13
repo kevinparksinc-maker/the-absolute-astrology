@@ -1,0 +1,8 @@
+{
+  "name": "Bible Believers Astrology",
+  "description": "Hybrid tropical, geocentric, and fixed-star astrology observatory with natal, transit, and horary chart readings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

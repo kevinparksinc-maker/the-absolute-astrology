@@ -1,0 +1,25 @@
+# Chart placement mini readings and onboarding correction
+
+The chart page mounts the existing `SystematicDeconstruction` cards again, with the uploaded dark/cyan page design as their visual reference. Each displayed planet, Node and available Ascendant/Descendant has one short synthesized paragraph. Selecting a placement in the circular/interactive diamond chart uses the same compact batch. Whole-chart readings, homepage formats and other full reading surfaces keep their existing format. This is not an implementation of every page in the uploaded design ZIP; sample tropical/Placidus/ayanamsha labels and sample people are not adopted into The Absolute's calculations.
+
+`interpretation.chartPage` reuses the authoritative reading bridge and the completed per-method judgments. Relevant planetary, house, mansion, decan, star, condition, strength and other finding judgments are retained with their exact evidence and sources. It does not substitute raw findings for method interpretations. The full relevant judgments are losslessly interned in the provider packet rather than repeated as JSON dumps. A shared batch produces all placement paragraphs in one provider call. Validation rejects missing/duplicate placements, unknown citations, omitted available mansion/decan evidence, cited methods without evidence and overlong/truncated output. Provider failures remain visible with Retry.
+
+Natal batch identity includes the account, birth input, actual positions, houses, worldview and framework/cache versions, and excludes live transit refreshes. Browser persistence and React Query share results between cards; the server deduplicates concurrent requests. Changing the birth data or frame invalidates the batch. Transit focus boxes use the separately calculated event framework and have a distinct instant/location identity. Active Dasha periods are not embedded into the indefinitely cached natal mini paragraphs; their changing timing belongs to timed readings. Ashtakavarga support remains available.
+
+## Onboarding: Next appeared to do nothing
+
+Step-one validation previously called the final save handler when the typed city had not been resolved, but the resulting form error was rendered only in step two. The Next handler also treated zero latitude as missing.
+
+Next now validates the birth identity, automatically resolves the typed city, and advances only when its coordinates/timezone are verified. Dallas aliases use the existing local city record. Errors render outside the step condition, so they are visible in both steps. Pending resolution disables Next and labels its work. Changed input during resolution does not advance with stale data. Editing a city clears its previous coordinate lock. Valid zero latitude is accepted. Step one never saves a profile.
+
+Regression checks cover the exact Dallas screenshot input, unknown/invalid birth details, remote geocoding, geocoder errors, changed cities and zero latitude. Mini-reading checks cover all 14 located-chart placements, exact lossless judgment transport, separate event scope, evidence validation, cache isolation, and rendered paragraphs/retry states.
+
+## Request-limit correction and enhanced chart map
+
+The live Groq account rejected the original all-placement packet with HTTP 413. The chart now requests Sun/Moon first and other placement paragraphs on opening their boxes. Each server request accepts at most two names. Requests are capped at 14,000 message characters and 2,000 output tokens; a two-placement request is split if needed. Each applicable method remains represented by an exact, bounded excerpt of an executed judgment. Full relevant judgments and sources remain in the returned evidence. The full lossless audit packet is not sent to the mini-reading model. Browser results persist per placement and account; the v4 identity invalidates the oversized-request generation.
+
+Visible paragraphs are plain, connected, second-person narratives. Category/provenance markers and wrapping quotes are omitted; old known markers are also cleaned from placement/full-narrative display without changing the Canon records or evidence sources.
+
+The enhanced uploaded chart map is implemented as a comparative God/Agent diamond map with clickable, keyboard-accessible house regions, house navigation, shared planet selection, active house residents and exact cross-frame telemetry. All values come from the authoritative chart. Its visual reference's sample identity, ayanamsha and ephemeris-brand claims are not substituted for this app's actual calculation provenance.
+
+The live test also exposed a provider JSON-generation HTTP 400 after the size fix. Minis now request strict structured output on the configured supported Groq model. The provider adapter retries a `json_validate_failed` response once without provider-side formatting, keeping the same prompt/provider and all application-level JSON/evidence validation. Other 400s remain failures; only allowlisted diagnostic codes may be exposed, never provider bodies that might echo private chart data. Visible method-outcome paragraphs also use the plain-prose cleanup.

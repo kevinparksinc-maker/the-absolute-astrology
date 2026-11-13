@@ -1,0 +1,17 @@
+# Keep dependency/build artifacts and development metadata outside the image context.
+node_modules
+**/node_modules
+.pnpm-store
+.git
+.github
+.env
+.env.*
+!.env.example
+dist
+build
+coverage
+*.log
+*.tsbuildinfo
+.DS_Store
+.vscode
+.idea

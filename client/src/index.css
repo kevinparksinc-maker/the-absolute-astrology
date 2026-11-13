@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  font-family: 'Manrope', 'DM Sans', system-ui, sans-serif;
+  color-scheme: dark;
+  --background: 230 38% 5%;
+  --foreground: 220 30% 96%;
+  --card: 229 32% 10%;
+  --card-foreground: 220 30% 96%;
+  --popover: 229 32% 10%;
+  --popover-foreground: 220 30% 96%;
+  --primary: 190 82% 67%;
+  --primary-foreground: 230 38% 5%;
+  --muted: 230 24% 15%;
+  --muted-foreground: 222 15% 64%;
+  --border: 225 22% 22%;
+  --input: 225 22% 24%;
+  --ring: 190 82% 67%;
+  --cyan-glow: rgba(34, 211, 238, .28);
+  --violet-glow: rgba(139, 92, 246, .26);
+  --gold-glow: rgba(217, 182, 111, .28);
+  --obsidian: #080B14;
+  --midnight: #101628;
+  --royal-violet: #8B5CF6;
+  --electric-cyan: #22D3EE;
+  --celestial-gold: #D9B66F;
+  --soft-platinum: #E8EDF7;
+  --harmony-teal: #2DD4BF;
+  --friction-coral: #FB7185;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+}
+
+* { border-color: hsl(var(--border)); }
+html { background: #080B14; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-width: 320px;
+  color: #E8EDF7;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 40%, rgba(217, 182, 111, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(8, 11, 20, 0.72) 0%, rgba(8, 11, 20, 0.94) 60%, #080B14 100%),
+    url('/assets/firmament-starfield.png') center top / cover fixed no-repeat,
+    #080B14;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .12;
+  background-image: radial-gradient(rgba(255,255,255,.78) .6px, transparent .7px);
+  background-size: 43px 43px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: .22;
+  background: linear-gradient(115deg, transparent 0 28%, rgba(103,232,249,.06) 42%, transparent 58%), linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: auto, 72px 72px, 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+.font-serif { font-family: 'Playfair Display', Georgia, serif; }
+.font-mono { font-family: 'DM Mono', monospace; }
+button, input, textarea, a { transition: transform 180ms var(--ease-out), border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, color 180ms ease; }
+button:active { transform: scale(.97); }
+*:focus-visible { outline: 2px solid rgb(103 232 249); outline-offset: 3px; }
+
+main.guardian-home-main { max-width: 1680px; padding-top: 3rem; }
+main.guardian-home-main > header { position: relative; padding: 2rem 0 2.25rem; border-bottom-color: rgba(148, 163, 184, .16); }
+main.guardian-home-main > header::before { content: ''; position: absolute; right: 5%; top: -5rem; width: 18rem; height: 18rem; border: 1px solid rgba(103,232,249,.12); border-radius: 999px; box-shadow: 0 0 90px rgba(103,232,249,.08), inset 0 0 40px rgba(167,139,250,.05); pointer-events: none; }
+main.guardian-home-main > header::after { content: ''; position: absolute; left: 0; bottom: -1px; width: 260px; height: 1px; background: linear-gradient(90deg, #67e8f9, #a78bfa 52%, transparent); box-shadow: 0 0 16px rgba(103,232,249,.5); }
+main.guardian-home-main > header h1 { max-width: 800px; font-size: clamp(3.2rem, 7vw, 6.8rem); line-height: .92; letter-spacing: -.06em; text-wrap: balance; text-shadow: 0 0 50px rgba(129, 140, 248, .22); }
+main.guardian-home-main > header p { color: rgba(203, 213, 225, .78); max-width: 610px; }
+main.guardian-home-main .text-slate-400 { color: rgba(203, 213, 225, .76); }
+main.guardian-home-main > header .text-xs.uppercase { color: #67e8f9; font-weight: 700; letter-spacing: .34em; }
+main.guardian-home-main > header .text-xs.uppercase span { background: #67e8f9; box-shadow: 0 0 14px rgba(103,232,249,.8); }
+
+main.guardian-home-main .rounded-xl, main.guardian-home-main .rounded-2xl, main.guardian-home-main .rounded-3xl { box-shadow: 0 24px 70px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.045); }
+main.guardian-home-main aside > div:first-child, main.guardian-home-main aside > div:nth-child(2), main.guardian-home-main section > div > div.rounded-xl, main.guardian-home-main section > div > div.rounded-2xl, main.guardian-home-main section > div > div.rounded-3xl { backdrop-filter: blur(18px); }
+main.guardian-home-main aside > div:first-child { border-color: rgba(103,232,249,.18); background: linear-gradient(145deg, rgba(18,26,48,.9), rgba(9,13,28,.76)); box-shadow: 0 28px 80px rgba(0,0,0,.34), 0 0 0 1px rgba(255,255,255,.025) inset; }
+main.guardian-home-main aside > div:nth-child(2) { border-color: rgba(167,139,250,.2); background: linear-gradient(145deg, rgba(26,25,53,.7), rgba(10,15,31,.75)); }
+main.guardian-home-main input, main.guardian-home-main textarea { border-color: rgba(148,163,184,.18) !important; background: rgba(3,7,18,.5) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.035); }
+main.guardian-home-main input:hover, main.guardian-home-main input:focus, main.guardian-home-main textarea:hover, main.guardian-home-main textarea:focus { border-color: rgba(103,232,249,.6) !important; box-shadow: 0 0 0 3px rgba(103,232,249,.08), 0 0 22px rgba(103,232,249,.08); }
+main.guardian-home-main button.bg-violet-500 { background: linear-gradient(105deg, #7657f6, #9b70ff 48%, #38cbd2) !important; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 13px 30px rgba(93,76,230,.32), inset 0 1px 0 rgba(255,255,255,.24); font-weight: 800; letter-spacing: .01em; }
+main.guardian-home-main button.bg-violet-500:hover { box-shadow: 0 16px 36px rgba(93,76,230,.48), 0 0 24px rgba(56,203,210,.18); filter: saturate(1.15) brightness(1.08); transform: translateY(-1px); }
+main.guardian-home-main section > .grid:first-child > div { border-color: rgba(148,163,184,.14); background: linear-gradient(145deg, rgba(21,28,50,.75), rgba(8,12,25,.68)); }
+main.guardian-home-main section > .grid:first-child > div:hover { border-color: rgba(103,232,249,.28); transform: translateY(-2px); }
+main.guardian-home-main section > div > div.rounded-2xl:not(.overflow-hidden) { border-color: rgba(103,232,249,.16); background: radial-gradient(circle at 50% 42%, rgba(44,169,192,.09), transparent 33%), linear-gradient(145deg, rgba(14,28,47,.72), rgba(8,12,25,.66)); }
+main.guardian-home-main table thead { background: linear-gradient(90deg, rgba(103,232,249,.07), rgba(167,139,250,.06)); }
+main.guardian-home-main table tbody tr { transition: background-color 180ms ease; }
+main.guardian-home-main table tbody tr:hover { background: linear-gradient(90deg, rgba(103,232,249,.07), rgba(167,139,250,.04)); }
+
+.firmament-host { position: relative; isolation: isolate; }
+.firmament-host::before { content: ''; position: absolute; inset: 1px; z-index: -1; border-radius: inherit; background: linear-gradient(110deg, rgba(103,232,249,.16), transparent 30%, rgba(167,139,250,.13) 72%, transparent); opacity: .8; pointer-events: none; }
+.firmament-host > div { background-image: linear-gradient(135deg, rgba(255,255,255,.035), transparent 40%); }
+.firmament-host button:hover { transform: translateY(-1px); border-color: rgba(103,232,249,.35); }
+.chart-wheel-shell { background: linear-gradient(145deg, #202124, #111214); border-color: rgba(245, 223, 153, .16); }
+.chart-wheel-shell > div > aside { background: linear-gradient(145deg, rgba(47, 48, 49, .94), rgba(24, 25, 27, .94)); border-color: rgba(245, 223, 153, .16); }
+.chart-wheel-shell svg { filter: drop-shadow(0 18px 28px rgba(0,0,0,.35)); }
+.chart-wheel-shell svg text { user-select: none; }
+
+@media (max-width: 768px) {
+  main.guardian-home-main { padding-top: 1.25rem; }
+  main.guardian-home-main > header { padding-top: 1rem; }
+  main.guardian-home-main > header h1 { font-size: clamp(2.8rem, 14vw, 4.8rem); }
+  main.guardian-home-main > header::before { right: -7rem; top: 2rem; opacity: .45; }
+  .chart-wheel-shell { border-radius: 1.25rem; padding: .75rem; }
+  .chart-wheel-shell > div > aside { order: 2; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+
+/* Guardian 2050 completion: consistent readable touch targets and responsive media */
+:root{
+  --guardian-gold:#e9d09e;
+  --guardian-cyan:#a4e5f0;
+  --guardian-ivory:#f4f2ec;
+  --guardian-muted:#b3c4d4;
+  --guardian-surface:#0d172b;
+}
+html{scroll-padding-top:1.25rem}
+body{overflow-wrap:break-word}
+svg[role="img"]{max-width:100%}
+.guardian-advanced-tools{content-visibility:auto;contain-intrinsic-size:auto 130px}
+@media(hover:none) and (pointer:coarse){
+  .guardian-home-main button,.guardian-global-nav button,.guardian-global-nav a{touch-action:manipulation}
+  .fg2050 .fg2050-portal{transform:none!important}
+}
+@media(max-width:767px){
+  body{background-attachment:scroll}
+  body::after{opacity:.10}
+  main.guardian-home-main{padding-top:1rem}
+  main.guardian-home-main > header h1{font-size:clamp(2.2rem,10vw,3.8rem);line-height:1.08}
+  .guardian-home-main input,.guardian-home-main select,.guardian-home-main textarea{font-size:16px;max-width:100%}
+  .fg2050 .fg2050-horizon-badges{letter-spacing:.07em}
+  .cg2050 .cg2050-frame-caption{font-size:10px;line-height:1.6}
+  .hc2050 .hc2050-stepbar button{min-height:48px}
+  .im2050 .im2050-tabs button{min-height:52px}
+}
+@media(prefers-reduced-transparency:reduce){
+  .guardian-global-nav,.fg2050-topbar{backdrop-filter:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .guardian-home-main .animate-pulse,.hc2050 .animate-pulse{animation:none!important}
+}
+
+
+/* 12 Gates: Neon Observatory visual hierarchy. No astronomical or interpretive changes. */
+:root{
+  --guardian-gold:#ffe180;
+  --guardian-cyan:#53f4ff;
+  --guardian-ivory:#f4f6ff;
+  --guardian-muted:#bdcdec;
+  --guardian-surface:#0a1531;
+  --neon-violet:#b275ff;
+  --neon-pink:#ff67d8;
+  --neon-lime:#a9ff86;
+}
+main.guardian-home-main > header { border-bottom:1px solid rgba(83,244,255,.3); }
+main.guardian-home-main > header::after {
+  background:linear-gradient(90deg,#53f4ff,#b275ff 55%,#ff67d8,transparent);
+  box-shadow:0 0 17px rgba(83,244,255,.48);
+}
+main.guardian-home-main > header .text-xs.uppercase { color:#6ff5ff; }
+main.guardian-home-main aside > div:first-child {
+  border:1px solid rgba(83,244,255,.4);
+  background:linear-gradient(155deg,rgba(12,32,64,.96),rgba(6,13,34,.94));
+  box-shadow:inset 3px 0 rgba(83,244,255,.78),0 18px 46px rgba(0,0,0,.25);
+}
+main.guardian-home-main aside > div:nth-child(2) {
+  border:1px solid rgba(178,117,255,.43);
+  background:linear-gradient(155deg,rgba(30,20,68,.92),rgba(9,14,34,.93));
+  box-shadow:inset 3px 0 rgba(178,117,255,.75),0 18px 46px rgba(0,0,0,.25);
+}
+main.guardian-home-main section > .grid:first-child > div {
+  border:1px solid rgba(115,179,255,.35);
+  background:linear-gradient(145deg,rgba(13,28,58,.94),rgba(7,13,32,.94));
+  box-shadow:0 14px 35px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.045);
+}
+main.guardian-home-main section > .grid:first-child > div:nth-child(3n+2) { border-color:rgba(178,117,255,.37); }
+main.guardian-home-main section > .grid:first-child > div:nth-child(3n+3) { border-color:rgba(255,103,216,.34); }
+main.guardian-home-main section > .grid:first-child > div:hover {
+  border-color:rgba(83,244,255,.68);
+  box-shadow:0 13px 40px rgba(0,0,0,.33),0 0 23px rgba(83,244,255,.09);
+}
+main.guardian-home-main section > div > div.rounded-2xl:not(.overflow-hidden) {
+  border-color:rgba(115,179,255,.33);
+  background:linear-gradient(145deg,rgba(13,31,61,.95),rgba(8,13,31,.94));
+}
+main.guardian-home-main input,main.guardian-home-main textarea{
+  border-color:rgba(115,179,255,.36)!important;
+  background:rgba(4,12,30,.82)!important;
+}
+main.guardian-home-main button.bg-violet-500{
+  background:linear-gradient(105deg,#6b4bff,#9b56fa 50%,#13cade)!important;
+  box-shadow:0 12px 30px rgba(98,61,231,.28),0 0 22px rgba(83,244,255,.13);
+}
+.chart-wheel-shell {
+  background:radial-gradient(circle at 50% 40%,rgba(54,48,122,.19),transparent 55%),linear-gradient(145deg,#101d39,#050b1e);
+  border:1px solid rgba(83,244,255,.4);
+  box-shadow:0 20px 60px rgba(0,0,0,.33),0 0 35px rgba(83,244,255,.07);
+}
+.chart-wheel-shell > div > aside{
+  background:linear-gradient(145deg,rgba(16,31,63,.96),rgba(8,14,34,.96));
+  border:1px solid rgba(178,117,255,.36);
+}
+.chart-wheel-shell svg{filter:drop-shadow(0 13px 22px rgba(0,0,0,.34));}
+main.guardian-home-main :is(h2,h3){text-wrap:balance;}
+main.guardian-home-main :is(p,li){line-height:1.7;}
+@media(max-width:767px){
+  main.guardian-home-main section > .grid:first-child > div{margin-bottom:4px;}
+  .chart-wheel-shell{box-shadow:0 12px 30px rgba(0,0,0,.3);}
+}
+@media(prefers-reduced-transparency:reduce){
+  main.guardian-home-main aside > div:first-child,
+  main.guardian-home-main aside > div:nth-child(2){backdrop-filter:none;}
+}
+
+
+/* 12 Gates release UI: crisp neon module separation and readable setup. */
+.guardian-home-main .fg-home-hero{gap:clamp(18px,3vw,40px);padding:26px 28px 32px;border:1px solid rgba(83,244,255,.28);border-radius:24px;background:linear-gradient(115deg,rgba(6,16,39,.91),rgba(15,12,42,.87));box-shadow:inset 4px 0 #53f4ff,0 16px 54px rgba(0,0,0,.24)}
+.guardian-home-main .fg-home-hero>div:first-child{min-width:0;flex:1 1 56%}
+.guardian-home-main .fg-home-hero h1{font-size:clamp(2.45rem,4.8vw,4.65rem);line-height:1.06;letter-spacing:-.045em;text-shadow:0 0 24px rgba(83,244,255,.10)}
+.guardian-home-main .fg-home-hero .fg-quick-actions{flex:0 1 430px;justify-content:flex-start;align-content:center;padding:16px;border:1px solid rgba(178,117,255,.3);border-radius:18px;background:rgba(6,11,32,.72)}
+.guardian-home-main .fg-quick-actions>:is(button,a){min-height:42px;border-radius:12px!important;white-space:normal}
+.guardian-home-main .fg-quick-actions>:is(button,a):hover{box-shadow:0 0 20px rgba(83,244,255,.13);transform:translateY(-1px)}
+.guardian-home-main .fg-quick-actions>:is(button,a):focus-visible{outline:2px solid #53f4ff}
+.guardian-home-main .fg-quick-actions>:nth-child(3){border-color:rgba(255,103,216,.55);background:rgba(255,103,216,.12);color:#ffd3f4}
+.guardian-home-main .fg-quick-actions>:nth-child(4){border-color:rgba(178,117,255,.55);background:rgba(178,117,255,.12);color:#e8d4ff}
+.guardian-home-main .fg-quick-actions>a[href="/horary"]{border-color:rgba(178,117,255,.62);color:#e4caff;background:rgba(178,117,255,.11)}
+.guardian-home-main .fg-quick-actions>a[href="/sky"]{border-color:rgba(83,244,255,.6);color:#bffaff;background:rgba(83,244,255,.09)}
+/* Twelve portals: visual identity by function, with accessible contrast rather than full-panel glare. */
+.fg2050 .fg2050-portal{--gate-accent:#53f4ff;position:relative;border:1px solid color-mix(in srgb,var(--gate-accent) 47%,transparent)!important;background:linear-gradient(155deg,rgba(13,26,56,.97),rgba(7,12,32,.96))!important;box-shadow:inset 3px 0 color-mix(in srgb,var(--gate-accent) 72%,transparent),0 15px 35px rgba(0,0,0,.22)!important;isolation:isolate}
+.fg2050 .fg2050-portal:nth-child(4n+2){--gate-accent:#b275ff}
+.fg2050 .fg2050-portal:nth-child(4n+3){--gate-accent:#ff67d8}
+.fg2050 .fg2050-portal:nth-child(4n+4){--gate-accent:#ffe180}
+.fg2050 .fg2050-portal:hover{border-color:var(--gate-accent)!important;box-shadow:inset 3px 0 var(--gate-accent),0 0 26px color-mix(in srgb,var(--gate-accent) 16%,transparent),0 20px 43px rgba(0,0,0,.31)!important}
+.fg2050 .fg2050-portal-icon{color:var(--gate-accent);border-color:color-mix(in srgb,var(--gate-accent) 46%,transparent)}
+.fg2050 .fg2050-portal-cta{color:var(--gate-accent)}
+.fg2050 .fg2050-education{border:1px solid rgba(178,117,255,.32);background:linear-gradient(120deg,rgba(18,17,54,.92),rgba(6,24,45,.92));border-radius:22px;box-shadow:inset 3px 0 #b275ff}
+.fg2050 .fg2050-view-row{border-color:rgba(83,244,255,.29)}
+/* Birth setup is a separate, high-contrast workspace. */
+.guardian-home-main #chart-setup,.guardian-home-main [id="chart-setup"]{scroll-margin-top:20px}
+.guardian-home-main input:not([type="checkbox"]):not([type="radio"]),.guardian-home-main select,.guardian-home-main textarea{min-height:44px;border:1px solid rgba(95,169,242,.48)!important;background:rgba(3,9,26,.91)!important;color:#f2f6ff!important}
+.guardian-home-main input::placeholder,.guardian-home-main textarea::placeholder{color:#95a9c8!important}
+.guardian-home-main input:focus-visible,.guardian-home-main textarea:focus-visible{outline:2px solid #53f4ff;outline-offset:2px}
+.guardian-home-main label{color:#deebff}
+.guardian-home-main .fg2050-portal :is(p,small),.guardian-home-main .fg2050-education :is(p,small){color:#c2d1ec}
+@media(max-width:1100px){.guardian-home-main .fg-home-hero{flex-direction:column}.guardian-home-main .fg-home-hero .fg-quick-actions{flex-basis:auto;width:100%}}
+@media(max-width:640px){.guardian-home-main .fg-home-hero{padding:18px 16px 24px;border-radius:18px}.guardian-home-main .fg-home-hero h1{font-size:clamp(2.3rem,10vw,3.7rem)}.guardian-home-main .fg-home-hero .fg-quick-actions{padding:12px;gap:7px}.fg2050 .fg2050-portal{border-radius:18px}}
+@media(prefers-reduced-motion:reduce){.guardian-home-main .fg-quick-actions>:is(button,a):hover{transform:none}}
+
+
+/* FIRMAMENT GUARDIAN — illuminated celestial-dome release skin.
+   Luminous panel EDGES, not heavy colored button fills. */
+.guardian-home-main {
+  --fg-gold:#ffd887;--fg-cyan:#63f1ff;--fg-violet:#b993ff;--fg-magenta:#ff77de;
+}
+.guardian-home-main .fg-home-hero{
+  position:relative;overflow:hidden;isolation:isolate;
+  border:2px solid rgba(255,211,128,.75);
+  background:radial-gradient(ellipse at 68% 10%,rgba(106,74,197,.22),transparent 48%),
+    linear-gradient(125deg,rgba(13,25,62,.95),rgba(14,13,48,.92) 62%,rgba(10,34,59,.92));
+  box-shadow:0 0 0 1px rgba(255,218,150,.22),0 0 32px rgba(255,191,89,.15),inset 0 0 38px rgba(92,154,255,.10),0 24px 60px rgba(0,0,0,.26);
+}
+.guardian-home-main .fg-home-hero::before{
+  content:"";pointer-events:none;position:absolute;z-index:-1;
+  width:min(65%,620px);aspect-ratio:1;right:-10%;top:-85%;
+  border-radius:50%;border:2px solid rgba(255,206,117,.42);
+  box-shadow:0 0 0 18px rgba(118,105,234,.06),0 0 0 43px rgba(255,212,138,.045),0 0 48px rgba(255,194,101,.18);
+  background:repeating-conic-gradient(from 4deg,transparent 0deg 29deg,rgba(255,211,143,.12) 30deg 30.6deg);
+}
+.guardian-home-main .fg-home-hero h1{
+  color:#ffe3a6;text-shadow:0 2px 20px rgba(255,190,94,.23);
+}
+.guardian-home-main .fg-home-hero .fg-quick-actions{
+  border:1px solid rgba(255,121,215,.66);
+  box-shadow:0 0 0 1px rgba(255,121,215,.12),0 0 24px rgba(255,121,215,.14),inset 0 0 22px rgba(181,112,255,.07);
+}
+.guardian-home-main .fg-celestial-tabs{
+  border:2px solid rgba(91,234,255,.75);
+  background:linear-gradient(115deg,rgba(12,22,53,.9),rgba(24,13,54,.85))!important;
+  box-shadow:0 0 0 1px rgba(89,244,255,.1),0 0 23px rgba(89,244,255,.16),inset 0 0 20px rgba(107,101,255,.08);
+  gap:10px;
+}
+.guardian-home-main .fg-celestial-tabs>button{
+  border:1px solid rgba(185,153,255,.50);
+  background:rgba(10,18,41,.66);
+  box-shadow:inset 0 0 10px rgba(94,112,250,.06);
+  min-height:44px;cursor:pointer;
+}
+.guardian-home-main .fg-celestial-tabs>button:nth-child(3n+1){border-color:rgba(255,208,118,.66)}
+.guardian-home-main .fg-celestial-tabs>button:nth-child(3n+2){border-color:rgba(255,117,222,.6)}
+.guardian-home-main .fg-celestial-tabs>button:nth-child(3n){border-color:rgba(100,235,255,.66)}
+.guardian-home-main .fg-celestial-tabs>button:hover,
+.guardian-home-main .fg-celestial-tabs>button:focus-visible{
+  border-color:#f7ddae;box-shadow:0 0 16px rgba(255,208,130,.22);outline-offset:3px;
+}
+.guardian-home-main .fg-module-banner{
+  border:1px solid rgba(255,216,137,.68);border-radius:20px;padding:22px 24px;
+  background:linear-gradient(110deg,rgba(27,25,65,.9),rgba(8,33,57,.84));
+  box-shadow:0 0 28px rgba(255,208,121,.12),inset 3px 0 rgba(255,216,137,.7);
+}
+.guardian-home-main .fg-module-title{color:#ffe4af;text-shadow:0 0 18px rgba(255,199,102,.13)}
+.guardian-home-main #master-interpreter-section,
+.guardian-home-main #social-loved-ones-section{
+  border:1px solid rgba(255,120,219,.42);border-radius:26px;padding:6px;
+  box-shadow:0 0 25px rgba(255,99,221,.09);
+}
+.guardian-home-main .fg-module-desc{color:#d7e7ff}
+.guardian-home-main .chart-wheel-shell{border:2px solid rgba(255,210,126,.6);box-shadow:0 0 26px rgba(255,193,93,.13)}
+.guardian-home-main .fg2050-portal{border-width:2px!important;box-shadow:0 0 24px color-mix(in srgb,var(--gate-accent) 18%,transparent),inset 3px 0 var(--gate-accent)!important}
+@media (max-width:640px){
+  .guardian-home-main .fg-celestial-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .guardian-home-main .fg-celestial-tabs>button{justify-content:center;padding:10px 8px;text-align:center;min-width:0}
+  .guardian-home-main .fg-module-banner{padding:18px 16px}
+}
+@media (prefers-reduced-motion:reduce){.guardian-home-main .fg-celestial-tabs>button{transition:none}}

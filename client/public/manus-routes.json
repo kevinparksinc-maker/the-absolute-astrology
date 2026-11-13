@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "title": "Bible Believers Astrology"
+    },
+    {
+      "path": "/sky",
+      "title": "Bible Believers Astrology Sky Home"
+    },
+    {
+      "path": "/horary",
+      "title": "Horary Chart Reading"
+    },
+    {
+      "path": "/history",
+      "title": "Private Sky Archive"
+    }
+  ]
+}

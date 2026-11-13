@@ -1,0 +1,43 @@
+.cg2050{color:#edf5fb;border:1px solid rgba(217,191,148,.3);background:radial-gradient(circle at 18% 35%,rgba(64,71,138,.22),transparent 50%),linear-gradient(135deg,rgba(22,31,57,.97),rgba(7,13,28,.97));border-radius:26px;overflow:hidden;box-shadow:0 30px 90px #0007,0 0 60px rgba(128,120,194,.06);margin:12px 0 28px;font-family:'Manrope','DM Sans',sans-serif}
+.cg2050-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:29px 30px 20px;border-bottom:1px solid #b2c5df21}
+.cg2050-eyebrow,.cg2050-panel-kicker{display:flex;align-items:center;gap:9px;color:#dfc492;font-size:10px;letter-spacing:.17em;font-weight:800}
+.cg2050-header h2{font:500 clamp(29px,3.4vw,46px) 'Playfair Display',Georgia,serif;letter-spacing:-.05em;margin:12px 0 8px}.cg2050-header h2 em{font-weight:400;color:#efcf96}
+.cg2050-header p:not(.cg2050-eyebrow){color:#a8b9ce;font-size:12px;line-height:1.8;max-width:750px}
+.cg2050-trust{color:#a9ddcd;font-size:9px;white-space:nowrap;letter-spacing:.13em;font-weight:800;display:inline-flex;align-items:center;gap:7px}
+.cg2050-trust i{width:6px;height:6px;border-radius:50%;background:#8cdbba;box-shadow:0 0 12px #8cdbba}
+.cg2050-body{display:grid;grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr);gap:20px;padding:24px}
+.cg2050-visual{border:1px solid #adc8ee26;background:radial-gradient(circle at center,rgba(19,31,61,.92),rgba(5,12,25,.85));border-radius:18px;padding:16px 20px 18px;display:flex;flex-direction:column}
+.cg2050-toolbar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.cg2050-toolbar button{display:flex;align-items:center;gap:9px;color:#9fb6c8;border:1px solid #9db3df32;background:#0b1832;padding:10px 16px;border-radius:999px;font-size:11px;font-weight:800;min-height:40px}
+.cg2050-toolbar button.cg2050-selected{background:linear-gradient(120deg,rgba(169,146,226,.22),rgba(105,210,225,.14));border-color:#e2c5927d;color:#f5e5c5}
+.cg2050-toolbar button:disabled{opacity:.45;cursor:not-allowed}
+.cg2050-wheel{max-width:600px;width:100%;margin:0 auto}.cg2050-wheel svg{display:block;width:100%;height:auto;overflow:visible}
+.cg2050-wheel svg g[role=button]:focus-visible circle{stroke:#f3dfbb;stroke-width:2px}
+.cg2050-frame-caption{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;margin:0 auto 12px;color:#bed0db;font-size:9px;font-weight:750;letter-spacing:.09em}
+.cg2050-frame-caption span{display:inline-flex;gap:7px;align-items:center}.cg2050-frame-caption span:first-child svg{color:#f5d09d}.cg2050-frame-caption span:last-child svg{color:#9debf0}
+.cg2050-help{text-align:center;color:#9cafc3;font-size:11px;line-height:1.7;max-width:520px;margin:0 auto}
+.cg2050-panel{background:linear-gradient(147deg,rgba(19,29,54,.88),rgba(9,16,31,.92));border:1px solid #b2c5df24;border-radius:18px;padding:24px;min-width:0}
+.cg2050-panel-kicker{color:#b0edee}.cg2050-panel h3{font:500 29px 'Playfair Display',Georgia,serif;margin:13px 0 17px}
+.cg2050-planets{display:flex;flex-wrap:wrap;gap:7px}
+.cg2050-planets button{font-size:10px;font-weight:750;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:6px 11px;border-radius:9px;color:#b4c4d9;border:1px solid #b0bfd92d;background:#0b152a}
+.cg2050-planets button>span{font-family:Georgia,serif;color:#decaa2;font-size:16px}
+.cg2050-planets button.cg2050-planet-active{border-color:#e4c591aa;background:linear-gradient(90deg,rgba(201,158,97,.25),rgba(94,95,162,.2));color:#f4e1c0}
+.cg2050-focus{margin:23px 0 24px;padding:18px;border-radius:13px;border:1px solid #e1c18c56;background:linear-gradient(110deg,rgba(221,186,128,.13),rgba(134,108,204,.07))}
+.cg2050-focus-title{display:flex;gap:12px;align-items:center;justify-content:space-between}.cg2050-focus-title>div:last-child{text-align:right}
+.cg2050-focus-title span{display:block;font-size:9px;letter-spacing:.18em;font-weight:800;color:#cbb892}
+.cg2050-focus-title h4{font:500 26px 'Playfair Display',Georgia,serif;margin:5px 0}
+.cg2050-focus-title strong{display:block;color:#f2d59d;font-size:12px}.cg2050-focus-title small{display:block;color:#b4bbce;font-size:11px;margin-top:6px}
+.cg2050-focus>p{font-size:11px;color:#b7c5d4;line-height:1.75;margin:12px 0 0}
+.cg2050-overlay-title{display:flex;align-items:center;gap:10px;margin:8px 0 12px}.cg2050-overlay-title svg{color:#dbbb88;flex-shrink:0}.cg2050-overlay-title strong{display:block;font-size:12px}.cg2050-overlay-title span{display:block;font-size:10px;color:#859cb5;margin-top:4px}
+.cg2050-overlays{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.cg2050-overlays button{border:1px solid #adc4e032;background:#0c1933;border-radius:9px;min-height:40px;padding:9px;color:#aec4d7;font-size:11px;font-weight:750}
+.cg2050-overlays button.cg2050-layer-active{background:linear-gradient(110deg,rgba(202,175,125,.23),rgba(131,104,205,.15));border-color:#e4c48c8e;color:#f6dfb3}
+.cg2050-overlay-result{border-left:2px solid #dcc189;padding:9px 15px;margin:18px 0 8px;background:rgba(255,255,255,.024)}
+.cg2050-overlay-result span{display:block;color:#99acbf;font-size:9px;letter-spacing:.12em;font-weight:800}
+.cg2050-overlay-result strong{display:block;color:#f3dfb9;margin:9px 0;font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:500}
+.cg2050-overlay-result small{color:#abb6c8;font-size:11px;line-height:1.6}
+.cg2050-deep{border-top:1px solid #adc5df26;margin-top:21px;padding-top:18px}.cg2050-deep summary{cursor:pointer;display:flex;align-items:center;gap:10px;color:#d4e8f3;font-size:11px;font-weight:800}.cg2050-deep summary svg:last-child{margin-left:auto}.cg2050-deep>p{font-size:11px;color:#b7c8d8;line-height:1.8;padding:0 3px}
+.cg2050-disclaimer{border-top:1px solid #adc5df22;padding:12px 29px 14px;display:flex;align-items:center;gap:9px;margin:0;color:#8599b0;font-size:10px;line-height:1.6}.cg2050-disclaimer svg{flex-shrink:0;color:#ddc194}
+@media(max-width:1100px){.cg2050-body{grid-template-columns:1fr}.cg2050-wheel{max-width:530px}.cg2050-header{flex-direction:column;align-items:flex-start}}
+@media(max-width:600px){.cg2050{border-radius:17px}.cg2050-header{padding:20px}.cg2050-body{padding:10px}.cg2050-visual,.cg2050-panel{padding:15px}.cg2050-focus-title{align-items:flex-start}.cg2050-planet-active{box-shadow:none}.cg2050-trust{white-space:normal}.cg2050-disclaimer{padding:13px}}
+@media(prefers-reduced-motion:reduce){.cg2050 *{animation:none!important;transition:none!important}}
